@@ -27,7 +27,6 @@ export default function HomePage() {
       <section className="selector-section">
         <div className="section-title">
           <h2>OTT 시안</h2>
-          <p>넷플릭스/티빙처럼 바로 보는 구조지만, 각각 분위기와 브랜딩이 전혀 다르게 보이도록 설계했어.</p>
         </div>
         <div className="selector-grid">
           {ottDesigns.map((design) => (
@@ -43,7 +42,6 @@ export default function HomePage() {
       <section className="selector-section">
         <div className="section-title">
           <h2>작가 페이지 시안</h2>
-          <p>업로드, 제작, 편집, 커뮤니티, 발행 흐름이 잘 보이도록 구성했어. 각 시안은 성격이 겹치지 않게 나눴어.</p>
         </div>
         <div className="selector-grid">
           {creatorDesigns.map((design) => (

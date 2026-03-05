@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { DesignItem } from '@/lib/design-data';
 
 type PreviewShellProps = {
@@ -9,9 +9,35 @@ type PreviewShellProps = {
   children: ReactNode;
 };
 
+const demoImages = ['/img1.jpg', '/img2.jpg', '/img3.jpg'];
+
+export function getDemoImage(index: number) {
+  return demoImages[index % demoImages.length];
+}
+
+export function getImageStyle(
+  index: number,
+  tone: 'dark' | 'light' | 'vivid' | 'paper' = 'dark',
+): CSSProperties {
+  const image = getDemoImage(index);
+
+  const overlays = {
+    dark: 'linear-gradient(180deg, rgba(6, 8, 16, 0.18), rgba(6, 8, 16, 0.7))',
+    light: 'linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.62))',
+    vivid: 'linear-gradient(180deg, rgba(77, 24, 129, 0.28), rgba(7, 14, 30, 0.7))',
+    paper: 'linear-gradient(180deg, rgba(245, 236, 219, 0.18), rgba(88, 58, 25, 0.2))',
+  };
+
+  return {
+    backgroundImage: `${overlays[tone]}, url('${image}')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
+}
+
 export function PreviewShell({ categoryLabel, design, backHref, children }: PreviewShellProps) {
   return (
-    <main className="preview-page">
+    <main className={`preview-page preview-${design.slug}`}>
       <div className="preview-topbar">
         <Link href={backHref} className="ghost-link">
           ← 메인으로
@@ -62,10 +88,20 @@ export function SectionTitle({ title, description }: { title: string; descriptio
   );
 }
 
-export function PosterCard({ title, subtitle }: { title: string; subtitle: string }) {
+export function PosterCard({
+  title,
+  subtitle,
+  imageIndex = 0,
+  tone = 'dark',
+}: {
+  title: string;
+  subtitle: string;
+  imageIndex?: number;
+  tone?: 'dark' | 'light' | 'vivid' | 'paper';
+}) {
   return (
     <article className="poster-card">
-      <div className="poster-thumb" />
+      <div className="poster-thumb" style={getImageStyle(imageIndex, tone)} />
       <div className="poster-copy">
         <strong>{title}</strong>
         <span>{subtitle}</span>

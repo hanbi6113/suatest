@@ -1,5 +1,5 @@
 import { DesignItem } from '@/lib/design-data';
-import { IntroBlock, MetricCard, PosterCard, PreviewShell, SectionTitle } from '@/components/shared';
+import { getImageStyle, IntroBlock, MetricCard, PosterCard, PreviewShell, SectionTitle } from '@/components/shared';
 
 const posters = [
   ['흑백의 계절', '로맨스 · 12화'],
@@ -37,7 +37,7 @@ function OttCinemaNoir({ design }: { design: DesignItem }) {
           </div>
         </div>
         <div className="hero-panel spotlight">
-          <div className="feature-frame">
+          <div className="feature-frame" style={getImageStyle(0, 'dark')}>
             <span className="live-pill">NOW STREAMING</span>
             <h3>검은 새벽의 아리아</h3>
             <p>웹소설 원작을 프리미엄 극장형 애니메이션으로 감상하는 메인 구역.</p>
@@ -54,8 +54,8 @@ function OttCinemaNoir({ design }: { design: DesignItem }) {
       <section className="content-section">
         <SectionTitle title="지금 가장 뜨는 작품" description="큰 화면과 긴 카드가 잘 어울리는 프리미엄형 레이아웃" />
         <div className="poster-grid four">
-          {posters.map(([title, subtitle]) => (
-            <PosterCard key={title} title={title} subtitle={subtitle} />
+          {posters.map(([title, subtitle], index) => (
+            <PosterCard key={title} title={title} subtitle={subtitle} imageIndex={index} />
           ))}
         </div>
       </section>
@@ -81,15 +81,15 @@ function OttGlassMinimal({ design }: { design: DesignItem }) {
           </div>
         </div>
         <div className="glass-stack">
-          <div className="glass-card large">
+          <div className="glass-card large image-card" style={getImageStyle(1, 'light')}>
             <span>Editor's Pick</span>
             <strong>유리별 항해</strong>
           </div>
-          <div className="glass-card">
+          <div className="glass-card image-card" style={getImageStyle(2, 'light')}>
             <span>Continue</span>
             <strong>Episode 07</strong>
           </div>
-          <div className="glass-card">
+          <div className="glass-card image-card" style={getImageStyle(0, 'light')}>
             <span>For You</span>
             <strong>차분한 판타지</strong>
           </div>
@@ -99,8 +99,8 @@ function OttGlassMinimal({ design }: { design: DesignItem }) {
       <section className="content-section narrow-section">
         <SectionTitle title="오늘의 큐레이션" description="작품 썸네일도 군더더기 없이 정갈하게 정리된 버전" />
         <div className="poster-strip">
-          {posters.map(([title, subtitle]) => (
-            <PosterCard key={title} title={title} subtitle={subtitle} />
+          {posters.map(([title, subtitle], index) => (
+            <PosterCard key={title} title={title} subtitle={subtitle} imageIndex={index + 1} tone="light" />
           ))}
         </div>
       </section>
@@ -121,23 +121,23 @@ function OttNeonGrid({ design }: { design: DesignItem }) {
           />
         </div>
         <div className="grid-monitor">
-          <div className="monitor-main">
+          <div className="monitor-main image-card" style={getImageStyle(2, 'vivid')}>
             <span>ACTIVE CHANNEL</span>
             <strong>심연 도시</strong>
             <p>장르 탐색 / 감상 진행률 / 출시 일정이 한 화면에 묶여 있어.</p>
           </div>
-          <div className="monitor-mini">79% watched</div>
-          <div className="monitor-mini">4 releases today</div>
-          <div className="monitor-mini">Neon Thriller Pack</div>
+          <div className="monitor-mini image-card" style={getImageStyle(0, 'vivid')}>79% watched</div>
+          <div className="monitor-mini image-card" style={getImageStyle(1, 'vivid')}>4 releases today</div>
+          <div className="monitor-mini image-card" style={getImageStyle(2, 'vivid')}>Neon Thriller Pack</div>
         </div>
       </section>
 
       <section className="content-section">
         <SectionTitle title="GRID CHANNELS" description="카드들이 격자형으로 쌓여 인터랙션이 강한 시안" />
         <div className="tech-grid">
-          {posters.map(([title, subtitle]) => (
+          {posters.map(([title, subtitle], index) => (
             <article key={title} className="tech-card">
-              <div className="tech-thumb" />
+              <div className="tech-thumb" style={getImageStyle(index, 'vivid')} />
               <strong>{title}</strong>
               <span>{subtitle}</span>
             </article>
@@ -152,7 +152,7 @@ function OttEditorial({ design }: { design: DesignItem }) {
   return (
     <div className="theme editorial-artbook">
       <section className="editorial-hero">
-        <div className="editorial-cover" />
+        <div className="editorial-cover" style={getImageStyle(1, 'paper')} />
         <div className="editorial-copy">
           <IntroBlock
             eyebrow="EDITORIAL VIEW"
@@ -174,10 +174,10 @@ function OttEditorial({ design }: { design: DesignItem }) {
         <article className="editorial-list">
           <h3>이번 달 선정작</h3>
           <ul>
-            {posters.map(([title, subtitle]) => (
+            {posters.map(([title, subtitle], index) => (
               <li key={title}>
                 <strong>{title}</strong>
-                <span>{subtitle}</span>
+                <span>{subtitle} · img{(index % 3) + 1}</span>
               </li>
             ))}
           </ul>
@@ -208,7 +208,7 @@ function OttAurora({ design }: { design: DesignItem }) {
           <div className="orb orb-a" />
           <div className="orb orb-b" />
           <div className="orb orb-c" />
-          <div className="floating-panel">
+          <div className="floating-panel image-card" style={getImageStyle(0, 'vivid')}>
             <strong>별비 내리는 밤</strong>
             <p>마음 상태에 맞춰 작품을 추천하는 감성 중심 메인 카드</p>
           </div>
@@ -218,10 +218,10 @@ function OttAurora({ design }: { design: DesignItem }) {
       <section className="content-section">
         <SectionTitle title="감정 기반 추천" description="장르가 아니라 분위기로 작품을 찾게 만드는 구조" />
         <div className="mood-row">
-          <div className="mood-card">잔잔한 밤</div>
-          <div className="mood-card">따뜻한 위로</div>
-          <div className="mood-card">환상 모험</div>
-          <div className="mood-card">아련한 로맨스</div>
+          <div className="mood-card image-card" style={getImageStyle(0, 'vivid')}>잔잔한 밤</div>
+          <div className="mood-card image-card" style={getImageStyle(1, 'vivid')}>따뜻한 위로</div>
+          <div className="mood-card image-card" style={getImageStyle(2, 'vivid')}>환상 모험</div>
+          <div className="mood-card image-card" style={getImageStyle(1, 'vivid')}>아련한 로맨스</div>
         </div>
       </section>
     </div>

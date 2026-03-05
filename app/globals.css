@@ -1130,3 +1130,315 @@ button {
     width: 100%;
   }
 }
+
+body {
+  transition: background 0.35s ease;
+}
+
+.image-card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.image-card > *,
+.image-card strong,
+.image-card span,
+.image-card p {
+  position: relative;
+  z-index: 1;
+}
+
+.preview-page {
+  position: relative;
+}
+
+.preview-page::before {
+  content: '';
+  position: absolute;
+  inset: 64px 0 0;
+  border-radius: 40px;
+  opacity: 0.92;
+  z-index: -1;
+}
+
+.preview-page.preview-cinema-noir::before {
+  background: linear-gradient(180deg, #190f10 0%, #110d12 100%);
+}
+
+.preview-page.preview-glass-minimal::before {
+  background: linear-gradient(180deg, #edf3fb 0%, #dde6f5 100%);
+}
+
+.preview-page.preview-neon-grid::before {
+  background: linear-gradient(180deg, #100d22 0%, #0b1024 100%);
+}
+
+.preview-page.preview-editorial-artbook::before {
+  background: linear-gradient(180deg, #f3ebdf 0%, #eadfcf 100%);
+}
+
+.preview-page.preview-aurora-stage::before {
+  background: linear-gradient(180deg, #151a38 0%, #1f2148 100%);
+}
+
+.preview-page.preview-maker-workbench::before {
+  background: linear-gradient(180deg, #142033 0%, #0f1828 100%);
+}
+
+.preview-page.preview-challenge-square::before {
+  background: linear-gradient(180deg, #2a1630 0%, #221425 100%);
+}
+
+.preview-page.preview-pro-studio-console::before {
+  background: linear-gradient(180deg, #0d1c16 0%, #0a1512 100%);
+}
+
+.preview-page.preview-atelier-portfolio::before {
+  background: linear-gradient(180deg, #f8e8e6 0%, #f1dcdf 100%);
+}
+
+.preview-page.preview-node-lab::before {
+  background: linear-gradient(180deg, #091924 0%, #0e2230 100%);
+}
+
+body:has(.preview-page.preview-cinema-noir) {
+  background: linear-gradient(180deg, #150d10 0%, #0f1017 100%);
+}
+
+body:has(.preview-page.preview-glass-minimal) {
+  background: linear-gradient(180deg, #f1f5fb 0%, #dbe4f0 100%);
+  color: #182231;
+}
+
+body:has(.preview-page.preview-neon-grid) {
+  background: linear-gradient(180deg, #120e2a 0%, #090d1d 100%);
+}
+
+body:has(.preview-page.preview-editorial-artbook) {
+  background: linear-gradient(180deg, #f6efe4 0%, #e9dece 100%);
+  color: #1d1913;
+}
+
+body:has(.preview-page.preview-aurora-stage) {
+  background: linear-gradient(180deg, #1a1d40 0%, #0f1328 100%);
+}
+
+body:has(.preview-page.preview-maker-workbench) {
+  background: linear-gradient(180deg, #17243a 0%, #101927 100%);
+}
+
+body:has(.preview-page.preview-challenge-square) {
+  background: linear-gradient(180deg, #311b37 0%, #181320 100%);
+}
+
+body:has(.preview-page.preview-pro-studio-console) {
+  background: linear-gradient(180deg, #0e1d18 0%, #08110d 100%);
+}
+
+body:has(.preview-page.preview-atelier-portfolio) {
+  background: linear-gradient(180deg, #faece8 0%, #f0dce0 100%);
+  color: #20151a;
+}
+
+body:has(.preview-page.preview-node-lab) {
+  background: linear-gradient(180deg, #081723 0%, #071119 100%);
+}
+
+.cinema-noir {
+  background: linear-gradient(180deg, rgba(32, 16, 18, 0.94), rgba(11, 11, 15, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.glass-minimal {
+  background: linear-gradient(180deg, rgba(245, 248, 253, 0.8), rgba(226, 235, 246, 0.82));
+  border: 1px solid rgba(21, 32, 45, 0.08);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.neon-grid {
+  background: linear-gradient(180deg, rgba(13, 12, 29, 0.92), rgba(9, 13, 25, 0.95));
+  border: 1px solid rgba(173, 124, 255, 0.12);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.editorial-artbook {
+  background: linear-gradient(180deg, rgba(248, 240, 229, 0.94), rgba(241, 230, 214, 0.94));
+  border: 1px solid rgba(29, 25, 19, 0.08);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.aurora-stage {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.maker-workbench {
+  background: linear-gradient(180deg, rgba(18, 28, 43, 0.95), rgba(14, 22, 35, 0.97));
+  border: 1px solid rgba(154, 183, 255, 0.12);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.challenge-square {
+  border: 1px solid rgba(255, 139, 214, 0.12);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.pro-studio-console {
+  border: 1px solid rgba(131, 255, 174, 0.12);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.atelier-portfolio {
+  border: 1px solid rgba(32, 21, 26, 0.08);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.node-lab {
+  border: 1px solid rgba(149, 238, 255, 0.12);
+  border-radius: 36px;
+  padding: 18px;
+}
+
+.glass-card.image-card,
+.monitor-main.image-card,
+.monitor-mini.image-card,
+.board-card.image-card,
+.community-box.image-card,
+.studio-card.image-card,
+.muse-card.image-card,
+.node-pill.image-card,
+.lab-card.image-card,
+.mood-card.image-card,
+.floating-panel.image-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-card.image-card::after,
+.monitor-main.image-card::after,
+.monitor-mini.image-card::after,
+.board-card.image-card::after,
+.community-box.image-card::after,
+.studio-card.image-card::after,
+.muse-card.image-card::after,
+.node-pill.image-card::after,
+.lab-card.image-card::after,
+.mood-card.image-card::after,
+.floating-panel.image-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.28;
+  z-index: 0;
+}
+
+.glass-card.image-card::before,
+.monitor-main.image-card::before,
+.monitor-mini.image-card::before,
+.board-card.image-card::before,
+.community-box.image-card::before,
+.studio-card.image-card::before,
+.muse-card.image-card::before,
+.node-pill.image-card::before,
+.lab-card.image-card::before,
+.mood-card.image-card::before,
+.floating-panel.image-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.28));
+  z-index: 0;
+}
+
+.glass-card.image-card::before,
+.community-box.image-card::before,
+.muse-card.image-card::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.22));
+}
+
+.glass-card.image-card > *,
+.monitor-main.image-card > *,
+.monitor-mini.image-card > *,
+.board-card.image-card > *,
+.community-box.image-card > *,
+.studio-card.image-card > *,
+.muse-card.image-card > *,
+.node-pill.image-card > *,
+.lab-card.image-card > *,
+.mood-card.image-card > *,
+.floating-panel.image-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.feed-thumb,
+.tech-thumb,
+.poster-thumb,
+.editorial-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.glass-minimal .poster-thumb,
+.challenge-square .feed-thumb,
+.atelier-portfolio .muse-card,
+.atelier-portfolio .atelier-text-box {
+  box-shadow: 0 14px 40px rgba(255, 255, 255, 0.08);
+}
+
+.maker-workbench .hero {
+  background: linear-gradient(135deg, #172537, #111a29 55%, #0f1828);
+}
+
+.challenge-square .playful-hero {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 139, 214, 0.05));
+}
+
+.node-lab .node-map {
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .preview-page::before {
+    inset: 72px 0 0;
+    border-radius: 28px;
+  }
+
+  .cinema-noir,
+  .glass-minimal,
+  .neon-grid,
+  .editorial-artbook,
+  .aurora-stage,
+  .maker-workbench,
+  .challenge-square,
+  .pro-studio-console,
+  .atelier-portfolio,
+  .node-lab {
+    padding: 12px;
+    border-radius: 28px;
+  }
+}
+
+.preview-page.preview-glass-minimal .ghost-link,
+.preview-page.preview-glass-minimal .chip,
+.preview-page.preview-editorial-artbook .ghost-link,
+.preview-page.preview-editorial-artbook .chip,
+.preview-page.preview-atelier-portfolio .ghost-link,
+.preview-page.preview-atelier-portfolio .chip {
+  color: inherit;
+  background: rgba(255, 255, 255, 0.42);
+  border-color: rgba(0, 0, 0, 0.08);
+}

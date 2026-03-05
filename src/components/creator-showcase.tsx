@@ -1,5 +1,5 @@
 import { DesignItem } from '@/lib/design-data';
-import { IntroBlock, MetricCard, PreviewShell, SectionTitle, StepCard } from '@/components/shared';
+import { getImageStyle, IntroBlock, MetricCard, PreviewShell, SectionTitle, StepCard } from '@/components/shared';
 
 export function CreatorShowcase({ design }: { design: DesignItem }) {
   return (
@@ -30,15 +30,15 @@ function MakerWorkbench({ design }: { design: DesignItem }) {
           </div>
         </div>
         <div className="panel-board">
-          <div className="board-card tall">
+          <div className="board-card tall image-card" style={getImageStyle(0, 'dark')}>
             <span>프로젝트 상태</span>
             <strong>파일 업로드 완료</strong>
           </div>
-          <div className="board-card">
+          <div className="board-card image-card" style={getImageStyle(1, 'dark')}>
             <span>장면 분할</span>
             <strong>24 scenes</strong>
           </div>
-          <div className="board-card">
+          <div className="board-card image-card" style={getImageStyle(2, 'dark')}>
             <span>AI 모션</span>
             <strong>Queued</strong>
           </div>
@@ -68,18 +68,18 @@ function ChallengeSquare({ design }: { design: DesignItem }) {
           tags={design.keywords}
         />
         <div className="community-banner">
-          <div className="community-box big">이번 주 급상승 제작자</div>
-          <div className="community-box">도전 애니 공모전</div>
-          <div className="community-box">피드백 1,280+</div>
+          <div className="community-box big image-card" style={getImageStyle(0, 'light')}>이번 주 급상승 제작자</div>
+          <div className="community-box image-card" style={getImageStyle(1, 'light')}>도전 애니 공모전</div>
+          <div className="community-box image-card" style={getImageStyle(2, 'light')}>피드백 1,280+</div>
         </div>
       </section>
 
       <section className="content-section">
         <SectionTitle title="도전 작품 피드" description="친근하고 대중적인 느낌으로 접근성을 높이는 구조" />
         <div className="feed-grid">
-          {['학원물 애니', '로판 티저', '퇴마 판타지', '일상 숏애니'].map((item) => (
+          {['학원물 애니', '로판 티저', '퇴마 판타지', '일상 숏애니'].map((item, index) => (
             <article key={item} className="feed-card">
-              <div className="feed-thumb" />
+              <div className="feed-thumb" style={getImageStyle(index, 'light')} />
               <strong>{item}</strong>
               <span>좋아요 · 댓글 · 응원하기</span>
             </article>
@@ -94,7 +94,7 @@ function ProStudioConsole({ design }: { design: DesignItem }) {
   return (
     <div className="theme pro-studio-console">
       <section className="console-shell">
-        <div className="console-main">
+        <div className="console-main image-card" style={getImageStyle(2, 'dark')}>
           <IntroBlock
             eyebrow="PRODUCTION CONTROL"
             title={design.title}
@@ -118,10 +118,10 @@ function ProStudioConsole({ design }: { design: DesignItem }) {
       <section className="content-section">
         <SectionTitle title="스튜디오 패널" description="복잡하고 전문적인 화면을 좋아할 때 어울리는 시안" />
         <div className="studio-grid">
-          <div className="studio-card wide-card">씬 보드</div>
-          <div className="studio-card">보이스 레이어</div>
-          <div className="studio-card">카메라 경로</div>
-          <div className="studio-card">감정 태그</div>
+          <div className="studio-card wide-card image-card" style={getImageStyle(0, 'dark')}>씬 보드</div>
+          <div className="studio-card image-card" style={getImageStyle(1, 'dark')}>보이스 레이어</div>
+          <div className="studio-card image-card" style={getImageStyle(2, 'dark')}>카메라 경로</div>
+          <div className="studio-card image-card" style={getImageStyle(1, 'dark')}>감정 태그</div>
         </div>
       </section>
     </div>
@@ -141,10 +141,10 @@ function AtelierPortfolio({ design }: { design: DesignItem }) {
           />
         </div>
         <div className="atelier-right">
-          <div className="muse-card large">대표작 미리보기</div>
+          <div className="muse-card large image-card" style={getImageStyle(0, 'light')}>대표작 미리보기</div>
           <div className="muse-row">
-            <div className="muse-card">캐릭터 시트</div>
-            <div className="muse-card">배경 무드보드</div>
+            <div className="muse-card image-card" style={getImageStyle(1, 'light')}>캐릭터 시트</div>
+            <div className="muse-card image-card" style={getImageStyle(2, 'light')}>배경 무드보드</div>
           </div>
         </div>
       </section>
@@ -173,20 +173,20 @@ function NodeLab({ design }: { design: DesignItem }) {
           tags={design.keywords}
         />
         <div className="node-map">
-          <div className="node-pill">원작</div>
-          <div className="node-pill">스토리보드</div>
-          <div className="node-pill">음성</div>
-          <div className="node-pill">애니메이션</div>
-          <div className="node-pill">공개</div>
+          <div className="node-pill image-card" style={getImageStyle(0, 'vivid')}>원작</div>
+          <div className="node-pill image-card" style={getImageStyle(1, 'vivid')}>스토리보드</div>
+          <div className="node-pill image-card" style={getImageStyle(2, 'vivid')}>음성</div>
+          <div className="node-pill image-card" style={getImageStyle(0, 'vivid')}>애니메이션</div>
+          <div className="node-pill image-card" style={getImageStyle(1, 'vivid')}>공개</div>
         </div>
       </section>
 
       <section className="content-section">
         <SectionTitle title="실험실 로그" description="정형화된 대시보드가 아닌, 특이하고 기억에 남는 제작 UI" />
         <div className="lab-notes">
-          <div className="lab-card">장면 연결 성공률 96%</div>
-          <div className="lab-card">캐릭터 감정 태그 32개</div>
-          <div className="lab-card">자동 립싱크 추천 활성화</div>
+          <div className="lab-card image-card" style={getImageStyle(2, 'vivid')}>장면 연결 성공률 96%</div>
+          <div className="lab-card image-card" style={getImageStyle(0, 'vivid')}>캐릭터 감정 태그 32개</div>
+          <div className="lab-card image-card" style={getImageStyle(1, 'vivid')}>자동 립싱크 추천 활성화</div>
         </div>
       </section>
     </div>
